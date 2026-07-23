@@ -194,7 +194,7 @@ h1{
 
   <div class="decoration d1">🎈</div>
   <div class="decoration d2">🎂</div>
-  <div class="decoration d3">✨</div>
+  <div class="decoration d3">🌟</div>
   <div class="decoration d4">🎁</div>
 
   <div class="logo">KENTA BIRTHDAY LOTTERY</div>
@@ -235,7 +235,7 @@ function startSlot(){
   if(running) return;
   running = true;
 
-  const icons = ["🎂","🎁","⭐","☕","🍀","🎈"];
+  const icons = ["🍰","🎈","⭐","☕","👑","💰"];
 
   const reels = [
     document.getElementById("r1"),
@@ -262,17 +262,17 @@ function startSlot(){
 
   setTimeout(() => {
     clearInterval(timers[0]);
-    reels[0].textContent = "🎁";
+    reels[0].textContent = "💰";
   }, 1600);
 
   setTimeout(() => {
     clearInterval(timers[1]);
-    reels[1].textContent = "⭐";
+    reels[1].textContent = "💰";
   }, 2200);
 
   setTimeout(() => {
     clearInterval(timers[2]);
-    reels[2].textContent = "🍀";
+    reels[2].textContent = "👑";
 
     slotFrame.classList.remove("shake");
 
