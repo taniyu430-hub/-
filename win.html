@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>健太君くじ ダブルアップチャンス</title>
+
+<style>
+*{
+  box-sizing:border-box;
+}
+
+body{
+  margin:0;
+  min-height:100vh;
+  background:linear-gradient(180deg,#070707,#1c1c1c);
+  color:#fff;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  overflow:hidden;
+}
+
+.container{
+  width:92%;
+  max-width:420px;
+  padding:28px 20px;
+}
+
+.title{
+  color:#ffd700;
+  font-size:30px;
+  font-weight:900;
+  margin-bottom:8px;
+}
+
+.subtitle{
+  font-size:20px;
+  margin-bottom:28px;
+  letter-spacing:2px;
+}
+
+.slot{
+  background:#000;
+  border:4px solid #ffd700;
+  border-radius:18px;
+  padding:18px 10px;
+  display:flex;
+  justify-content:center;
+  gap:8px;
+  box-shadow:0 0 30px rgba(255,215,0,.45);
+}
+
+.reel{
+  width:88px;
+  height:110px;
+  background:#fff;
+  color:#111;
+  border-radius:12px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  font-size:48px;
+  font-weight:bold;
+}
+
+button{
+  width:100%;
+  margin-top:28px;
+  padding:18px;
+  border:none;
+  border-radius:14px;
+  background:linear-gradient(180deg,#ffe66d,#d4a800);
+  font-size:24px;
+  font-weight:900;
+  cursor:pointer;
+  box-shadow:0 5px 0 #8d7000;
+}
+
+button:active{
+  transform:translateY(3px);
+  box-shadow:0 2px 0 #8d7000;
+}
+
+#result{
+  margin-top:28px;
+  font-size:28px;
+  font-weight:900;
+  min-height:90px;
+}
+
+.small{
+  font-size:16px;
+  font-weight:500;
+  margin-top:8px;
+  opacity:.9;
+}
+
+.gift-button{
+  display:none;
+  margin-top:20px;
+  text-decoration:none;
+  background:#fff;
+  color:#111;
+  padding:16px 20px;
+  border-radius:14px;
+  font-size:20px;
+  font-weight:900;
+}
+
+.shake{
+  animation:shake .12s infinite;
+}
+
+.flash{
+  animation:flash .5s alternate infinite;
+}
+
+@keyframes shake{
+  0%{transform:translateX(-2px)}
+  50%{transform:translateX(2px)}
+  100%{transform:translateX(-2px)}
+}
+
+@keyframes flash{
+  from{filter:brightness(1)}
+  to{filter:brightness(1.8)}
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <div class="title">🎰 健太君くじ 🎰</div>
+  <div class="subtitle">ダブルアップチャンス</div>
+
+  <div class="slot" id="slot">
+    <div class="reel" id="r1">?</div>
+    <div class="reel" id="r2">?</div>
+    <div class="reel" id="r3">?</div>
+  </div>
+
+  <button id="startButton" onclick="startSlot()">START</button>
+
+  <div id="result"></div>
+
+  <a
+    id="giftButton"
+    class="gift-button"
+    href="ここにギフトURLを入れる"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    ☕ ギフトを受け取る
+  </a>
+
+</div>
+
+<script>
+let running = false;
+
+function startSlot(){
+  if(running) return;
+  running = true;
+
+  const icons = ["🎁","⭐","☕","💎","🎂","🍀"];
+  const reels = [
+    document.getElementById("r1"),
+    document.getElementById("r2"),
+    document.getElementById("r3")
+  ];
+
+  const button = document.getElementById("startButton");
+  const result = document.getElementById("result");
+  const slot = document.getElementById("slot");
+  const giftButton = document.getElementById("giftButton");
+
+  button.disabled = true;
+  button.textContent = "抽選中…";
+  result.innerHTML = "";
+  slot.classList.add("shake");
+
+  const timers = reels.map((reel) => {
+    return setInterval(() => {
+      reel.textContent = icons[Math.floor(Math.random() * icons.length)];
+    }, 90);
+  });
+
+  setTimeout(() => {
+    clearInterval(timers[0]);
+    reels[0].textContent = "☕";
+  }, 1800);
+
+  setTimeout(() => {
+    clearInterval(timers[1]);
+    reels[1].textContent = "☕";
+  }, 2400);
+
+  setTimeout(() => {
+    clearInterval(timers[2]);
+    reels[2].textContent = "☕";
+
+    slot.classList.remove("shake");
+    slot.classList.add("flash");
+
+    result.innerHTML =
+      "🎉 大当たり！ 🎉<div class='small'>コーヒーGET！下のボタンから受け取ってね☕</div>";
+
+    giftButton.style.display = "inline-block";
+    button.textContent = "当選！";
+
+    if(navigator.vibrate){
+      navigator.vibrate([200,100,200,100,400]);
+    }
+  }, 3000);
+}
+</script>
+
+</body>
+</html>
