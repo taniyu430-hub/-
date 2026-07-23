@@ -194,7 +194,7 @@ h1{
 
   <div class="decoration d1">🎈</div>
   <div class="decoration d2">🎂</div>
-  <div class="decoration d3">🌟</div>
+  <div class="decoration d3">✨</div>
   <div class="decoration d4">🎁</div>
 
   <div class="logo">KENTA BIRTHDAY LOTTERY</div>
@@ -235,7 +235,7 @@ function startSlot(){
   if(running) return;
   running = true;
 
-  const icons = ["🍰","🎈","⭐","☕","👑","💰"];
+  const icons = ["🍰","🎁","⭐","☕","💓","🎈"];
 
   const reels = [
     document.getElementById("r1"),
@@ -281,7 +281,7 @@ function startSlot(){
     result.innerHTML =
       "ざんねーん！<span class='result-small'>今回はハズレでした👅</span>";
 
-    button.textContent = "また挑戦してね❕";
+    button.textContent = "また挑戦してね";
 
     if(navigator.vibrate){
       navigator.vibrate([120,80,120]);
