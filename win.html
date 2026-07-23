@@ -151,7 +151,7 @@ button:active{
   <a
     id="giftButton"
     class="gift-button"
-    href="https://linegift.line.me/"
+    href="#" onclick="alert('🎉当たり！\n\nごんたが今からLINEギフトを送ります☕');return false;"
     target="_blank"
     rel="noopener noreferrer"
   >
@@ -167,7 +167,7 @@ function startSlot(){
   if(running) return;
   running = true;
 
-  const icons = ["🎁","⭐","☕","💎","🎂","🍀"];
+  const icons = ["🎁","💓","☕","💰","🎂","🍀"];
   const reels = [
     document.getElementById("r1"),
     document.getElementById("r2"),
