@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>健太君くじ ダブルアップチャンス</title>
+
+<style>
+body{
+margin:0;
+background:#111;
+font-family:sans-serif;
+color:white;
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+text-align:center;
+}
+
+.box{
+width:90%;
+max-width:400px;
+}
+
+h1{
+color:gold;
+font-size:34px;
+}
+
+button{
+margin-top:30px;
+font-size:25px;
+padding:18px 40px;
+border:none;
+border-radius:15px;
+background:gold;
+cursor:pointer;
+}
+
+#result{
+margin-top:40px;
+font-size:32px;
+font-weight:bold;
+}
+</style>
+
+</head>
+<body>
+
+<div class="box">
+
+<h1>🎰 健太君くじ 🎰</h1>
+
+<h2>ダブルアップチャンス</h2>
+
+<p>ボタンを押してチャレンジ！</p>
+
+<button onclick="start()">START</button>
+
+<div id="result"></div>
+
+</div>
+
+<script>
+
+function start(){
+
+const result=document.getElementById("result");
+
+result.innerHTML="🎰 ルーレット中...";
+
+setTimeout(()=>{
+
+result.innerHTML="😭 残念！ハズレ！";
+
+},3000);
+
+}
+
+</script>
+
+</body>
+</html>
