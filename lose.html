@@ -394,7 +394,14 @@ const messages = [
     text:"くまさんが先に当たりを持っていった！"
   }
 ];
-
+const patterns = [
+  ["💰","💰","💛"],
+  ["☕","☕","💔"],
+  ["☕","🎁","💔"],
+  ["⭐","☕","💔"],
+  ["🧸","🧸","💔"],
+  ["🍓","🍰","🧸"]
+];
 function startSlot(){
 
   if(running) return;
@@ -427,6 +434,10 @@ function startSlot(){
     document.getElementById("slotMachine");
 const selected =
   messages[Math.floor(Math.random() * messages.length)];
+
+  const pattern =
+  patterns[Math.floor(Math.random() * patterns.length)];
+  
   button.disabled = true;
   button.textContent = "くるくる抽選チュ…♡";
 
@@ -445,18 +456,18 @@ const selected =
 
   setTimeout(() => {
     clearInterval(timers[0]);
-    reels[0].textContent = "💰";
+    reels[0].textContent = pattern[0];
   },1600);
 
   setTimeout(() => {
     clearInterval(timers[1]);
-    reels[1].textContent = "💰";
+    reels[1].textContent = pattern[1];
   },2200);
 
   setTimeout(() => {
 
     clearInterval(timers[2]);
-    reels[2].textContent = "💛";
+    reels[2].textContent = pattern[2];
 
     slotMachine.classList.remove("shake");
 
