@@ -372,6 +372,29 @@ h1{
 <script>
 let running = false;
 
+const messages = [
+  {
+    title:"🥺 今回は残念...",
+    text:"ダブルアップならずでした💦"
+  },
+  {
+    title:"☕ おしい！",
+    text:"コーヒーがあと一歩だったね！"
+  },
+  {
+    title:"🎀 残念！",
+    text:"プレゼントはまだ秘密みたい♡"
+  },
+  {
+    title:"⭐ 惜しい！",
+    text:"運は次の一枚に温存中！"
+  },
+  {
+    title:"🧸 ハズレ！",
+    text:"くまさんが先に当たりを持っていった！"
+  }
+];
+
 function startSlot(){
 
   if(running) return;
@@ -402,7 +425,8 @@ function startSlot(){
 
   const slotMachine =
     document.getElementById("slotMachine");
-
+const selected =
+  messages[Math.floor(Math.random() * messages.length)];
   button.disabled = true;
   button.textContent = "くるくる抽選チュ…♡";
 
@@ -439,11 +463,11 @@ function startSlot(){
     result.classList.add("pop");
 
     result.innerHTML =
-      "🥺 今回は残念…" +
-      "<span class='result-small'>" +
-      "ダブルアップならずでした💦<br>" +
-      "でも、お誕生日おめでとう♡" +
-      "</span>";
+  selected.title +
+  "<span class='result-small'>" +
+  selected.text +
+  "<br>でも、お誕生日おめでとう♡" +
+  "</span>";
 
     button.textContent = "🎀 また挑戦してね 🎀";
 
