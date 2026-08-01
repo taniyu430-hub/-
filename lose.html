@@ -494,17 +494,20 @@ const selected =
   setTimeout(() => {
     clearInterval(timers[0]);
     reels[0].textContent = pattern[0];
+    reels[0].classList.add("stop");
   },1600);
 
   setTimeout(() => {
     clearInterval(timers[1]);
     reels[1].textContent = pattern[1];
+    reels[1].classList.add("stop");
   },2200);
 
   setTimeout(() => {
 
     clearInterval(timers[2]);
     reels[2].textContent = pattern[2];
+    reels[2].classList.add("stop");
 
     slotMachine.classList.remove("shake");
 
