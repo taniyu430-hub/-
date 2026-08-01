@@ -500,6 +500,24 @@ h1{
   }
 }
 
+  .reel.stop{
+  animation:stopPop .32s cubic-bezier(.22,1.6,.35,1);
+}
+
+@keyframes stopPop{
+  0%{
+    transform:scale(.82);
+  }
+
+  55%{
+    transform:scale(1.18);
+  }
+
+  100%{
+    transform:scale(1);
+  }
+}
+
 @keyframes fall{
   0%{
     transform:translateY(-30px) rotate(0deg);
