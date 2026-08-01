@@ -695,18 +695,24 @@ const selected =
     reels[2].textContent = pattern[2];
     reels[2].classList.add("stop");
 
-    slotMachine.classList.remove("shake");
+ slotMachine.classList.remove("shake");
 
-    result.classList.add("pop");
+result.innerHTML = "✨ RESULT... ✨";
 
-    result.innerHTML =
-  selected.title +
-  "<span class='result-small'>" +
-  selected.text +
-  "<br>でも、お誕生日おめでとう♡" +
-  "</span>";
+setTimeout(() => {
 
-    button.textContent = "🎀 また挑戦してね 🎀";
+  result.classList.add("pop");
+
+  result.innerHTML =
+    selected.title +
+    "<span class='result-small'>" +
+    selected.text +
+    "<br>でも、お誕生日おめでとう♡" +
+    "</span>";
+
+  button.textContent = "🎀 また挑戦してね 🎀";
+
+},700);
 
     if(navigator.vibrate){
       navigator.vibrate([120,80,120]);
