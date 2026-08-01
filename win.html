@@ -84,16 +84,62 @@ body{
 
   width:100%;
   max-width:420px;
-  padding:28px 20px 26px;
+  padding:32px 24px 28px;
 
   text-align:center;
-  background:rgba(255,255,255,.95);
-  border:3px solid #ffd5e2;
-  border-radius:32px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255,255,255,.62),
+      rgba(255,255,255,.30)
+    );
+
+  border:1px solid rgba(255,255,255,.82);
+  border-radius:34px;
+
+  backdrop-filter:blur(24px);
+  -webkit-backdrop-filter:blur(24px);
 
   box-shadow:
-    0 14px 35px rgba(214,142,165,.18),
-    inset 0 0 0 6px #fff8fa;
+    0 24px 60px rgba(154,117,133,.14),
+    inset 0 1px 0 rgba(255,255,255,.95),
+    inset 0 -1px 0 rgba(255,255,255,.35);
+
+  overflow:hidden;
+}
+
+  .card::before{
+  content:"";
+  position:absolute;
+  inset:0;
+
+  background:
+    linear-gradient(
+      120deg,
+      transparent 20%,
+      rgba(255,255,255,.35) 45%,
+      transparent 70%
+    );
+
+  transform:translateX(-120%);
+  animation:cardShine 7s ease-in-out infinite;
+  pointer-events:none;
+}
+
+.card > *{
+  position:relative;
+  z-index:1;
+}
+
+@keyframes cardShine{
+  0%,75%{
+    transform:translateX(-120%);
+  }
+
+  100%{
+    transform:translateX(120%);
+  }
 }
 
 .top-label{
@@ -152,17 +198,94 @@ h1{
 
 .slot-machine{
   position:relative;
-
   margin-top:23px;
-  padding:15px 11px 18px;
+  padding:18px 14px 20px;
 
-  border:3px solid #f2b7c9;
-  border-radius:25px;
-  background:linear-gradient(180deg,#fff0f5,#ffe5ed);
+  border:1px solid rgba(255,255,255,.75);
+  border-radius:28px;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255,255,255,.72),
+      rgba(255,255,255,.38)
+    );
+
+  backdrop-filter:blur(18px);
+  -webkit-backdrop-filter:blur(18px);
 
   box-shadow:
-    0 7px 0 #e89eb5,
-    inset 0 2px 0 #fff;
+    0 4px 0 rgba(232,158,181,.38),
+    0 16px 34px rgba(193,129,154,.14),
+    inset 0 1px 0 rgba(255,255,255,.95),
+    0 0 24px rgba(255,188,215,.18);
+
+  overflow:hidden;
+}
+
+  .slot-machine::before{
+  content:"";
+  position:absolute;
+  top:0;
+  left:-130%;
+  width:80%;
+  height:100%;
+
+  background:
+    linear-gradient(
+      120deg,
+      transparent,
+      rgba(255,255,255,.55),
+      transparent
+    );
+
+  animation:glassShine 5s ease-in-out infinite;
+  pointer-events:none;
+  z-index:0;
+}
+
+.slot-machine > *{
+  position:relative;
+  z-index:1;
+}
+  
+
+@keyframes glassShine{
+  0%,70%{
+    left:-130%;
+  }
+
+  100%{
+    left:150%;
+  }
+}
+
+  .slot-header{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:14px;
+  margin-bottom:16px;
+
+  font-family:"M PLUS Rounded 1c",sans-serif;
+  font-size:15px;
+  font-weight:700;
+  letter-spacing:.18em;
+
+  color:#e18aa5;
+  text-shadow:0 1px 8px rgba(255,255,255,.9);
+}
+
+.slot-header span{
+  width:42px;
+  height:1px;
+
+  background:linear-gradient(
+    90deg,
+    transparent,
+    rgba(225,138,165,.8),
+    transparent
+  );
 }
 
 .slot-light{
@@ -194,15 +317,25 @@ h1{
   justify-content:center;
   align-items:center;
 
-  border:2px solid #f0dce2;
-  border-radius:17px;
-  background:#fff;
+  border:1px solid rgba(255,255,255,.85);
+  border-radius:24px;
 
-  font-size:45px;
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255,255,255,.72),
+      rgba(255,255,255,.38)
+    );
+
+  backdrop-filter:blur(12px);
+  -webkit-backdrop-filter:blur(12px);
+
+  font-size:50px;
 
   box-shadow:
-    inset 0 3px 8px rgba(143,98,111,.08),
-    0 4px 8px rgba(164,111,128,.08);
+    inset 0 1px 0 rgba(255,255,255,.95),
+    0 10px 22px rgba(210,145,170,.10),
+    0 0 24px rgba(255,220,230,.18);
 }
 
 .start-button{
@@ -338,13 +471,18 @@ h1{
 @keyframes winGlow{
   from{
     box-shadow:
-      0 7px 0 #e89eb5,
-      0 0 5px rgba(255,157,188,.3);
+      0 4px 0 rgba(232,158,181,.38),
+      0 16px 34px rgba(193,129,154,.14),
+      inset 0 1px 0 rgba(255,255,255,.95),
+      0 0 12px rgba(255,188,215,.25);
   }
+
   to{
     box-shadow:
-      0 7px 0 #e89eb5,
-      0 0 30px rgba(255,145,181,.8);
+      0 4px 0 rgba(232,158,181,.30),
+      0 18px 38px rgba(193,129,154,.16),
+      inset 0 1px 0 rgba(255,255,255,.95),
+      0 0 34px rgba(255,170,205,.65);
   }
 }
 
@@ -406,6 +544,14 @@ h1{
 
   <div class="slot-machine" id="slotMachine">
 
+    <div class="slot-header">
+  <span></span>
+  GOOD LUCK
+  <span></span>
+</div>
+
+    
+
     <div class="slot-light">
       <span></span>
       <span></span>
@@ -445,8 +591,8 @@ h1{
   </a>
 
   <div class="notice" id="notice">
-    ※ボタンを押すとLINEギフトのページが開きます。
-  </div>
+  ※ボタンを押すとスターバックスのギフトページが開きます。
+</div>
 
   <div class="footer-message">
     ぽちおにとって<br>
