@@ -241,23 +241,35 @@ h1{
   }
 }
 
-  .slot-header{
-
+ .slot-header{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:12px;
   margin-bottom:14px;
 
   font-family:"Mochiy Pop One",sans-serif;
   font-size:18px;
-  letter-spacing:.08em;
+  letter-spacing:.12em;
 
-  color:#fff;
+  color:#df789a;
+  text-shadow:0 2px 10px rgba(223,120,154,.18);
 
-  text-shadow:
-    0 0 8px #ff6ea8,
-    0 0 18px #ffb7d1;
-
-    animation:headerGlow 2s ease-in-out infinite;
+  animation:headerGlow 2.4s ease-in-out infinite;
 }
 
+.slot-header span{
+  width:42px;
+  height:1px;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(223,120,154,.7),
+      transparent
+    );
+}
   
 
   @keyframes headerGlow{
@@ -548,8 +560,10 @@ h1{
 
   <div class="slot-machine" id="slotMachine">
 
-    <div class="slot-header">
-  ✨ GOOD LUCK ✨
+ <div class="slot-header">
+  <span></span>
+  GOOD LUCK
+  <span></span>
 </div>
 
     <div class="slot-light">
@@ -568,10 +582,7 @@ h1{
       <div class="reel" id="r3">🎁</div>
     </div>
 
-    <div class="corner c1">✨</div>
-<div class="corner c2">✨</div>
-<div class="corner c3">✨</div>
-<div class="corner c4">✨</div>
+
     
   </div>
 
