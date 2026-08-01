@@ -193,6 +193,37 @@ h1{
     inset 0 2px 0 #fff;
 }
 
+  .slot-header{
+
+  margin-bottom:14px;
+
+  font-family:"Mochiy Pop One",sans-serif;
+  font-size:18px;
+  letter-spacing:.08em;
+
+  color:#fff;
+
+  text-shadow:
+    0 0 8px #ff6ea8,
+    0 0 18px #ffb7d1;
+
+    animation:headerGlow 2s ease-in-out infinite;
+}
+
+  @keyframes headerGlow{
+
+  0%,100%{
+    opacity:1;
+    transform:scale(1);
+  }
+
+  50%{
+    opacity:.75;
+    transform:scale(1.05);
+  }
+
+}
+  
 .slot-light{
   display:flex;
   justify-content:center;
@@ -424,6 +455,10 @@ h1{
   </div>
 
   <div class="slot-machine" id="slotMachine">
+
+    <div class="slot-header">
+  ✨ GOOD LUCK ✨
+</div>
 
     <div class="slot-light">
       <span></span>
