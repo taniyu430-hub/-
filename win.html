@@ -669,52 +669,36 @@ function startSlot(){
   reels[1].classList.add("stop");
 },2200);
 
+setTimeout(() => {
+
   clearInterval(timers[2]);
-reels[2].textContent = "☕";
-reels[2].classList.add("stop");
+  reels[2].textContent = "☕";
+  reels[2].classList.add("stop");
 
-    slotMachine.classList.remove("shake");
-    slotMachine.classList.add("win-glow");
+  slotMachine.classList.remove("shake");
+  slotMachine.classList.add("win-glow");
 
-    result.classList.add("pop");
-.reel.stop{
-  animation:stopPop .28s ease;
-}
+  result.classList.add("pop");
 
-@keyframes stopPop{
-  0%{
-    transform:scale(.85);
+  result.innerHTML =
+    "🎉 おめでとう 🎉" +
+    "<span class='result-small'>" +
+    "ぽちお~❕、大当たり〜❕💗<br>" +
+    "コーヒーをプレゼント☕" +
+    "</span>";
+
+  giftButton.style.display = "block";
+  notice.style.display = "block";
+
+  button.textContent = "🎀 大当たり 🎀";
+
+  createConfetti();
+
+  if(navigator.vibrate){
+    navigator.vibrate([150,80,150,80,350]);
   }
-  70%{
-    transform:scale(1.12);
-  }
-  100%{
-    transform:scale(1);
-  }
-}
-  
-  
-    result.innerHTML =
-      "🎉 おめでとう 🎉" +
-      "<span class='result-small'>" +
-      "ぽちお~❕、大当たり〜❕💗<br>" +
-      "コーヒーをプレゼント☕" +
-      "</span>";
 
-    giftButton.style.display = "block";
-    notice.style.display = "block";
-
-    button.textContent = "🎀 大当たり 🎀";
-
-    createConfetti();
-
-    if(navigator.vibrate){
-      navigator.vibrate([
-        150,80,150,80,350
-      ]);
-    }
-
-  },2900);
+},2900);
 }
 
 function createConfetti(){
