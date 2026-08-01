@@ -180,19 +180,65 @@ h1{
 
 .slot-machine{
   position:relative;
-
   margin-top:23px;
-  padding:15px 11px 18px;
+  padding:18px 14px 20px;
 
-  border:3px solid #f2b7c9;
-  border-radius:25px;
-  background:linear-gradient(180deg,#fff0f5,#ffe5ed);
+  border:1px solid rgba(255,255,255,.75);
+  border-radius:28px;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255,255,255,.72),
+      rgba(255,255,255,.38)
+    );
+
+  backdrop-filter:blur(18px);
+  -webkit-backdrop-filter:blur(18px);
 
   box-shadow:
-  0 7px 0 #e89eb5,
-  inset 0 2px 0 #fff,
-  0 0 18px rgba(255,170,210,.45),
-  0 0 35px rgba(255,120,180,.25);
+    0 8px 0 #e89eb5,
+    0 18px 40px rgba(193,129,154,.18),
+    inset 0 1px 0 rgba(255,255,255,.95),
+    0 0 30px rgba(255,188,215,.25);
+
+  overflow:hidden;
+}
+
+  .slot-machine::before{
+  content:"";
+  position:absolute;
+  top:0;
+  left:-130%;
+  width:80%;
+  height:100%;
+
+  background:
+    linear-gradient(
+      120deg,
+      transparent,
+      rgba(255,255,255,.55),
+      transparent
+    );
+
+  animation:glassShine 5s ease-in-out infinite;
+  pointer-events:none;
+  z-index:0;
+}
+
+.slot-machine > *{
+  position:relative;
+  z-index:1;
+}
+
+@keyframes glassShine{
+  0%,70%{
+    left:-130%;
+  }
+
+  100%{
+    left:150%;
+  }
 }
 
   .slot-header{
